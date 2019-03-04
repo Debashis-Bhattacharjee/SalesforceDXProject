@@ -17,6 +17,7 @@ public class FundControllerTest {
 	        System.assert(success);
         }
     }
+	
     @isTest
     static  void testGetSectors() {
         Boolean success = true;
