@@ -1,7 +1,8 @@
 @isTest
 public class FundControllerTest {
     
-    static testMethod void testGetFunds() {
+	@istest
+    static  void testGetFunds() {
         Boolean success = true;
         try {
             Sector__c s = new Sector__c(Name='Test Sector');
@@ -15,8 +16,8 @@ public class FundControllerTest {
 	        System.assert(success);
         }
     }
-
-    static testMethod void testGetSectors() {
+    @isTest
+    static  void testGetSectors() {
         Boolean success = true;
         try {
             Sector__c s = new Sector__c(Name='Test Sector');
@@ -28,8 +29,8 @@ public class FundControllerTest {
 	        System.assert(success);
         }
     }
-
-    static testMethod void testGetAssetClasses() {
+	@isTest
+    static  void testGetAssetClasses() {
         Boolean success = true;
         try {
             FundController.getAssetClasses();
