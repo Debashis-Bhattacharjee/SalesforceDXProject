@@ -94,11 +94,7 @@
     </target>
 	
 	
-	<!-- Shows retrieving code; only succeeds if done after deployCode -->
-    <target name="retrieveCodeQA" depends="proxy">
-      <!-- Retrieve the contents listed in the file codepkg/package.xml into the codepkg directory -->
-      <sf:retrieve username="${sf.qa.username}" password="${sf.qa.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" retrieveTarget="src" unpackaged="src/package.xml"/>
-    </target>
+	
 
     <!-- Shows deploying code, running all tests, and running tests (1 of which fails), and logging. -->
     <target name="deployCodeFailingTest">
@@ -106,15 +102,7 @@
       <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="codepkg" testLevel="RunAllTestsInOrg" rollbackOnError="true" logType="Debugonly"/>
     </target>
 
-    <!-- Shows check only; never actually saves to the server -->
-    <target name="deployCodeCheckOnlyQA" depends="proxy">
-      <sf:deploy username="${sf.qa.username}" password="${sf.qa.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="src" checkOnly="true"/>
-    </target>
-	
-	<target name="deployCodeQA" depends="proxy">
-      <sf:deploy username="${sf.qa.username}" password="${sf.qa.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="src"/>
-    </target>
-	
+   
 	<!-- Shows quick deployment of recent validation. Set the property sf.recentValidationId to your recent check only deployment Id -->
 	<target name="quickDeploy">
 	  <sf:deployRecentValidation  username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" recentValidationId="${sf.recentValidationId}"/>
