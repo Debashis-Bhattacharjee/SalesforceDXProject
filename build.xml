@@ -87,15 +87,7 @@
       <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="removecodepkg"/>
     </target>
 
-    <!-- Shows retrieving code; only succeeds if done after deployCode -->
-    <target name="retrieveCodeDev" depends="proxy">
-      <!-- Retrieve the contents listed in the file codepkg/package.xml into the codepkg directory -->
-      <sf:retrieve username="${sf.dev.username}" password="${sf.dev.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" retrieveTarget="src" unpackaged="src/package.xml"/>
-    </target>
-	
-	
-	
-
+    
     <!-- Shows deploying code, running all tests, and running tests (1 of which fails), and logging. -->
     <target name="deployCodeFailingTest">
       <!-- Upload the contents of the "codepkg" package, running all tests -->
